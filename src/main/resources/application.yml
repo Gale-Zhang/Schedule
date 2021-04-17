@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: schedule
+  datasource:
+    minIdle: 20
+    initialSize: 20
+    maxWait: 60000
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    logSlowSql: true
+    url: jdbc:mysql://127.0.0.1:3306/schedule?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=GMT
+    password: zjh123456
+    testOnBorrow: false
+    testWhileIdle: true
+    maxOpenPreparedStatements: 50
+    minEvictableIdleTimeMillis: 300000
+    timeBetweenEvictionRunsMillis: 60000
+    testOnReturn: false
+    driverClassName: com.mysql.cj.jdbc.Driver
+    maxActive: 100
+    username: root
+server:
+  port: 18081
+  servlet:
+    context-path: /schedule

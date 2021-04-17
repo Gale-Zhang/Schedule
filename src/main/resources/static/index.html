@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="js/see_btn.js"></script>
+		<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+		<title>近期日程</title>
+	</head>
+	<body>
+		<div class="menumain" id="menu" style="display:none" href="javascript:void(0);" onclick="off_menu();"  >
+			<div class="menu" >
+				<div class="menuheader">
+					<div style="height:1.5rem;width: 1.5rem;border-radius:50%;background: #005CC5;color: #fff;font-size:0.75rem;display: flex;box-shadow: 0 3px 4px 0 rgba(0,0,0,0.3);margin: auto 0.5rem;">
+						<div style="margin:auto;">T</div></div>
+					<div style="font-size:1.25rem;">近期日程</div>
+				</div>
+					<ul class="menubody">
+						<li id="mc0" class="ml"><a href="javascript:void(0);" onclick="javascript:void(0)">登录</a></li>
+						<li id="mc1" class="ml"><a href="javascript:void(0);" onclick="javascript:user='SN.Feng';see_all()">SN.Feng</a></li>
+						<li id="mc2" class="ml"><a href="javascript:void(0);" onclick="javascript:user='Gale.Zhang';see_all()">Gale.Zhang</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="head">
+		<div class="header">
+			<a style="justify-content: flex-end;width: 2rem;" href="javascript:void(0);" onclick="see_menu();" class="menubtn">三</a>
+		<div style="justify-content: center;width: 6rem;">近期日程</div>
+		<div style="width: 2rem;"></div>
+		</div>
+		<div class="tabbar">
+			<a class="tab active" id="see_today" href="javascript:void(0);" onclick="see_today();">今日安排</a>
+			<a class="tab" href="javascript:void(0);" onclick="see_all();" id="see_all">本周安排</a>
+		</div>
+	</div>
+
+
+	<div class="body">
+		<div id = "input_box" class="box">
+			<div class="prompt">添加日程</div>
+			<strong class="close" onclick="javascript:input_box.style.display = 'none'">关闭</strong>
+			<input class="input" type="text" value="" placeholder="输入事项，换行请以<br>分割">
+			<strong class="submit" onclick="submit()">提交</strong>
+		</div>
+		<button id = "up" class="up" onclick="changeDate(-7)">PgUp</button>
+		<button id = "down" class="down" onclick="changeDate(7)">PgDn</button>
+		<div class="week">
+		<div class="day" id="1">
+			<div class="dayleft">周一</div>
+			<div class="dayright">
+				<div id="info11" class="info" onclick="modify(this)">上午<div class='intext'></div></div>
+				<div id="info12" class="info" onclick="modify(this)">下午<div class='intext'></div></div>
+				<div id="info13" class="info" onclick="modify(this)">晚上<div class='intext'></div></div>
+			</div>
+		</div>
+		<div class="day" id="2">
+			<div class="dayleft">周二</div>
+			<div class="dayright">
+				<div id="info21" class="info" onclick="modify(this)">上午<div class='intext'></div></div>
+				<div id="info22" class="info" onclick="modify(this)">下午<div class='intext'></div></div>
+				<div id="info23" class="info" onclick="modify(this)">晚上<div class='intext'></div></div>
+			</div>
+		</div>
+		<div class="day" id="3">
+			<div class="dayleft">周三</div>
+			<div class="dayright">
+				<div id="info31" class="info" onclick="modify(this)">上午<div class='intext'></div></div>
+				<div id="info32" class="info" onclick="modify(this)">下午<div class='intext'></div></div>
+				<div id="info33" class="info" onclick="modify(this)">晚上<div class='intext'></div></div>
+			</div>
+		</div>
+		<div class="day" id="4">
+			<div class="dayleft">周四</div>
+			<div class="dayright">
+				<div id="info41" class="info" onclick="modify(this)">上午<div class='intext'></div></div>
+				<div id="info42" class="info" onclick="modify(this)">下午<div class='intext'></div></div>
+				<div id="info43" class="info" onclick="modify(this)">晚上<div class='intext'></div></div>
+			</div>
+		</div>
+		<div class="day" id="5">
+			<div class="dayleft">周五</div>
+			<div class="dayright">
+				<div id="info51" class="info" onclick="modify(this)">上午<div class='intext'></div></div>
+				<div id="info52" class="info" onclick="modify(this)">下午<div class='intext'></div></div>
+				<div id="info53" class="info" onclick="modify(this)">晚上<div class='intext'></div></div>
+			</div>
+		</div>
+		<div class="day" id="6">
+			<div class="dayleft">周六</div>
+			<div class="dayright">
+				<div id="info61" class="info" onclick="modify(this)">上午<div class='intext'></div></div>
+				<div id="info62" class="info" onclick="modify(this)">下午<div class='intext'></div></div>
+				<div id="info63" class="info" onclick="modify(this)">晚上<div class='intext'></div></div>
+			</div>
+		</div>
+		<div class="day" id="0">
+			<div class="dayleft">周日</div>
+			<div class="dayright">
+				<div id="info01" class="info" onclick="modify(this)">上午<div class='intext'></div></div>
+				<div id="info02" class="info" onclick="modify(this)">下午<div class='intext'></div></div>
+				<div id="info03" class="info" onclick="modify(this)">晚上<div class='intext'></div></div>
+			</div>
+		</div>
+		</div>
+		<br><br><br>
+		<div class="poems"><span id="jinrishici-sentence">正在加载今日诗词....</span><br><br></div>
+		<div class="weather"> <iframe width="400" height="100" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=35&site=34&icon=1"></iframe></div>
+
+	</div>
+	<script src="js/infos.js"></script>
+		<!-- 天气插件 -->
+	<!--<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>-->
+	<script>see_today();</script>
+	</body>
+</html>
